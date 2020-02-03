@@ -1,10 +1,12 @@
+org: mikemo
+app: learning-apollo
 service: serverless-graphql-appsync-lda
 
 frameworkVersion: ">=1.21.0 <2.0.0"
 
 provider:
   name: aws
-  runtime: nodejs6.10
+  runtime: nodejs12.x
   stage: dev
   region: us-east-1
 
@@ -14,7 +16,7 @@ plugins:
   - serverless-webpack
 
 custom:
-  accountId: 1234xxxxxxxx # replace this with your accountId
+  accountId: 552429576165 # replace this with your accountId
   appSync:
     # name:  # defaults to api
     # apiId # only required for update-appsync
@@ -22,7 +24,7 @@ custom:
     userPoolConfig:
       awsRegion: us-east-1 # required # region
       defaultAction: ALLOW
-      userPoolId: us-east-1_xxxxxxxxx # replace this with your Cognito User Pool Id
+      userPoolId: us-east-1_g8P17iUWM # replace this with your Cognito User Pool Id
     # region: # defaults to provider region
     # mappingTemplatesLocation: # defaults to mapping-templates
     mappingTemplates:
@@ -52,7 +54,7 @@ custom:
         request: "reTweet-request-mapping-template.txt"
         response: "reTweet-response-mapping-template.txt"
     # schema: # defaults schema.graphql
-    serviceRole: "AppSyncServiceRole"
+    serviceRole: "AppSyncServiceRoleMikeMo"
     dataSources:
       - type: AWS_LAMBDA
         name: Lambda
@@ -70,10 +72,10 @@ functions:
 
 resources:
   Resources:
-    AppSyncServiceRole:
+    AppSyncServiceRoleMikeMo:
       Type: "AWS::IAM::Role"
       Properties:
-        RoleName: "Lambda-AppSyncServiceRole"
+        RoleName: "Lambda-AppSyncServiceRole-MikeMo"
         AssumeRolePolicyDocument:
           Version: "2012-10-17"
           Statement:
@@ -86,7 +88,7 @@ resources:
                 - "sts:AssumeRole"
         Policies:
           -
-            PolicyName: "Lambda-AppSyncServiceRole-Policy"
+            PolicyName: "Lambda-AppSyncServiceRole-Policy-MikeMo"
             PolicyDocument:
               Version: "2012-10-17"
               Statement:

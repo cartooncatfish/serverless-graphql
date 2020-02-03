@@ -135,7 +135,4 @@ const deleteMutation = graphql(DeleteTweetMutation, {
   }),
 });
 
-export default compose(
-  tweetsQuery,
-  deleteMutation
-)(MeTweetsComponent);
+export default compose(tweetsQuery, deleteMutation)(MeTweetsComponent);

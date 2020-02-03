@@ -13,5 +13,5 @@ plugins:
 
 custom:
   client:
-    bucketName: s3-bucketname-serverless-graphql
+    bucketName: serverless-graphql-appsync
     distributionFolder: build
